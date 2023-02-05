@@ -27,7 +27,7 @@ public class Block : MonoBehaviour
     void Update()
     {
         myIndex = transform.GetSiblingIndex();
-        Debug.Log("My Index:" + myIndex);
+        //Debug.Log("My Index:" + myIndex);
         timer += Time.deltaTime;
         if (timer > 10)
         {
@@ -63,7 +63,7 @@ public class Block : MonoBehaviour
                 tagName = GetComponentInParent<BlockSpawn>().transform.GetChild(myIndex + childIndex).gameObject.tag;
                 //BlockSpawn의 해당 인덱스의 자식 오브젝트를 담아준다. 
                 blocks[childIndex] = GetComponentInParent<BlockSpawn>().transform.GetChild(myIndex + childIndex).gameObject;
-                Debug.Log("블록 배열 " + blocks[childIndex]);
+                //Debug.Log("블록 배열 " + blocks[childIndex]);
 
 
             if (tagName == gameObject.tag)
@@ -71,7 +71,13 @@ public class Block : MonoBehaviour
                 sameBlock += 1;
                 if (sameBlock == 2)
                 {
-                    BlockRemove();
+                    //for (int i = 0; i < 3; i++)
+                    //{
+                    //    Debug.Log("담긴블록" + blocks[childIndex]);
+                    //    Destroy(blocks[childIndex]);
+                    //}
+
+                    //BlockRemove();
                 }
                 else
                 {

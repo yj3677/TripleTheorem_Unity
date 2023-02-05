@@ -61,7 +61,7 @@ public class PlayerInput : MonoBehaviour
             if (hitInformation.collider != null)
             {
                 Transform hit = hitInformation.transform;
-                Debug.Log("hit Info : " + hit.name);
+                //Debug.Log("hit Info : " + hit.name);
                 if (hitInformation.collider.gameObject.layer==LayerMask.NameToLayer("TouchArea"))
                 {
                     
