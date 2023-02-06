@@ -51,6 +51,8 @@ public class BlockSpawn : MonoBehaviour
         poolblock.transform.Translate(new Vector3(0, -0.7f, 0), Space.Self);
         poolblock.transform.parent = gameObject.transform;
 
+        poolblock.GetComponent<Block>().Setup(this);
+
         //Debug.Log(transform.GetChild(0));
 
     }
