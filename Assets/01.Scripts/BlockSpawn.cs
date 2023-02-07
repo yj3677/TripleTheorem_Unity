@@ -49,6 +49,7 @@ public class BlockSpawn : MonoBehaviour
         poolblock = GameManager.instance.poolManager.Get(Random.Range(0, GameManager.instance.poolManager.blocks.Length)); //풀에서 랜덤으로 블럭 가져오기
         poolblock.transform.position = transform.position;
         poolblock.transform.Translate(new Vector3(0, -0.7f, 0), Space.Self);
+        poolblock.GetComponent<Block>().timer = 0;
         poolblock.transform.parent = gameObject.transform;
 
         //Debug.Log(transform.GetChild(0));

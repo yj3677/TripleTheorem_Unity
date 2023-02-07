@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class Block : MonoBehaviour
 {
-    float timer;
+    public float timer;
     public float power = 2;
     public Rigidbody2D rb;
     Outline blockOutline;
@@ -53,12 +53,12 @@ public class Block : MonoBehaviour
     {
         
             sameBlock = 0;
-
-            Debug.Log("부모 자식 개수"+GetComponentInParent<BlockSpawn>().bottomBlockIndex);
+        blocks = new GameObject[3];
+        Debug.Log("부모 자식 개수"+GetComponentInParent<BlockSpawn>().bottomBlockIndex);
 
             for (int childIndex = 0; childIndex < 3; childIndex++)
             {
-                blocks = new GameObject[3];
+
                 //부모를 가져와서 자식 인덱스를 가져와 태그 비교
                 tagName = GetComponentInParent<BlockSpawn>().transform.GetChild(myIndex + childIndex).gameObject.tag;
                 //BlockSpawn의 해당 인덱스의 자식 오브젝트를 담아준다. 
@@ -69,15 +69,9 @@ public class Block : MonoBehaviour
             if (tagName == gameObject.tag)
             {
                 sameBlock += 1;
-                if (sameBlock == 2)
+                if (sameBlock == 3)
                 {
-                    //for (int i = 0; i < 3; i++)
-                    //{
-                    //    Debug.Log("담긴블록" + blocks[childIndex]);
-                    //    Destroy(blocks[childIndex]);
-                    //}
-
-                    //BlockRemove();
+                    BlockRemove();
                 }
                 else
                 {
@@ -91,13 +85,15 @@ public class Block : MonoBehaviour
     }
     void BlockRemove()
     {
-        for (int childIndex = 0; childIndex < 3; childIndex++)
+        for (int i = 0; i < 3; i++)
         {
-            //Destroy(blocks[childIndex]);
-            Debug.Log(blocks[childIndex]);
+            Debug.Log("담긴블록" + blocks[i]);
+            //Destroy(blocks[i]);
+            blocks[i].transform.SetParent(GameManager.instance.poolManager.transform);
+            blocks[i].gameObject.SetActive(false);
         }
 
-        
+
 
 
     }
