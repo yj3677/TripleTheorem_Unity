@@ -92,9 +92,5 @@ public class Block : MonoBehaviour
             blocks[i].transform.SetParent(GameManager.instance.poolManager.transform);
             blocks[i].gameObject.SetActive(false);
         }
-
-
-
-
     }
 }
