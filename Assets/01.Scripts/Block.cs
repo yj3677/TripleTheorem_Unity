@@ -50,9 +50,8 @@ public class Block : MonoBehaviour
         blockOutline.enabled = false;
     }
     public void BlockCheck()
-    {
-        
-            sameBlock = 0;
+    { 
+        sameBlock = 0;
         blocks = new GameObject[3];
         Debug.Log("부모 자식 개수"+GetComponentInParent<BlockSpawn>().bottomBlockIndex);
 
@@ -64,8 +63,6 @@ public class Block : MonoBehaviour
                 //BlockSpawn의 해당 인덱스의 자식 오브젝트를 담아준다. 
                 blocks[childIndex] = GetComponentInParent<BlockSpawn>().transform.GetChild(myIndex + childIndex).gameObject;
                 //Debug.Log("블록 배열 " + blocks[childIndex]);
-
-
             if (tagName == gameObject.tag)
             {
                 sameBlock += 1;
@@ -78,7 +75,6 @@ public class Block : MonoBehaviour
                     //break;
                 }
             }
-
         }
         
         
